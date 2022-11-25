@@ -44,4 +44,4 @@ class HomeView(View):
             email.send()
 
             messages.success(request,'Se ha enviado tu correo')
-            return HttpResponse('<script>history.back();</script>')
+            return redirect('home')
