@@ -39,9 +39,13 @@ class HomeView(View):
                 ['vanebel.arg@gmail.com']
             )
 
-            email.attach_alternative(template, "text/html")
-            email.fail_silently = False
-            email.send()
+            try:
+                email.attach_alternative(template, "text/html")
+                email.fail_silently = False
+                email.send()
+                messages.success(request,'Se ha enviado tu correo')
+                return HttpResponse('<script>history.back();</script>')
+            except Exception as e:
+                messages.success(request,f'Error en el envío{e}')
+                return HttpResponse('<script>history.back();</script>')
 
-            messages.success(request,'Se ha enviado tu correo')
-            return HttpResponse('<script>history.back();</script>')
