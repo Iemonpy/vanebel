@@ -111,16 +111,17 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR , "public/static")
+]
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR , 'staticfiles')
+#STATIC_ROOT = os.path.join(BASE_DIR , 'staticfiles')
 
-STATICFILES_DIR = {
-    os.path.join(BASE_DIR , "public/static")
-}
 
-MEDIA_ROOT = os.path.join(BASE_DIR , 'public/static')
-MEDIA_URL = '/media/'
+
+#MEDIA_ROOT = os.path.join(BASE_DIR , 'public/static')
+#MEDIA_URL = '/media/'
 
 if not DEBUG:    # Tell Django to copy statics to the `staticfiles` directory
     # in your application directory on Render.
